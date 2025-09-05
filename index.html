@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elite Escort Berlin | Premium Escort Hizmeti</title>
+    <title>Escort GO Berlin | Premium Escort Hizmeti</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -58,6 +58,7 @@
             font-size: 0.8rem;
             opacity: 0.7;
             transition: var(--transition);
+            cursor: pointer;
         }
         
         .language-options a:hover, .language-options a.active {
@@ -1038,7 +1039,8 @@
                 font-size: 3.2rem;
             }
             
-            nav ul {
+            /* Düzeltme: Desktop nav'i gizle, burger menüyü göster */
+            .desktop-nav {
                 display: none;
             }
             
@@ -1163,20 +1165,12 @@
         
         @media (max-width: 576px) {
             .header-container {
-                flex-direction: column;
+                flex-direction: row;
                 gap: 15px;
             }
             
             nav ul {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 15px;
-                margin-top: 15px;
-            }
-            
-            nav ul li {
-                margin-left: 0;
+                display: none;
             }
             
             .hero {
@@ -1211,13 +1205,13 @@
     <!-- Language Bar -->
     <div class="language-bar">
         <div class="language-options">
-            <a href="#" class="active">TÜRKÇE</a>
-            <a href="#">ALMANCA</a>
-            <a href="#">İNGİLİZCE</a>
-            <a href="#">FRANSIZCA</a>
-            <a href="#">İTALYANCA</a>
-            <a href="#">LEHÇE</a>
-            <a href="#">İSPANYOLCA</a>
+            <a href="#" class="active language-option" data-lang="tr">TÜRKÇE</a>
+            <a href="#" class="language-option" data-lang="de">ALMANCA</a>
+            <a href="#" class="language-option" data-lang="en">İNGİLİZCE</a>
+            <a href="#" class="language-option" data-lang="fr">FRANSIZCA</a>
+            <a href="#" class="language-option" data-lang="it">İTALYANCA</a>
+            <a href="#" class="language-option" data-lang="pl">LEHÇE</a>
+            <a href="#" class="language-option" data-lang="es">İSPANYOLCA</a>
         </div>
     </div>
 
@@ -1226,77 +1220,76 @@
         <div class="contact-info">
             <div class="contact-item">
                 <i class="fas fa-phone"></i>
-                <span>Tel.: 0152 22 03 66 64</span>
+                <span class="lang-phone">Tel.: 0152 22 03 66 64</span>
             </div>
             <div class="contact-item">
                 <i class="fab fa-whatsapp"></i>
-                <span>WhatsApp: 0152 22 03 66 64</span>
+                <span class="lang-whatsapp">WhatsApp: 0152 22 03 66 64</span>
             </div>
             <div class="contact-item">
                 <i class="fab fa-telegram"></i>
-                <span>Telegram: 0152 22 03 66 64</span>
+                <span class="lang-telegram">Telegram: 0152 22 03 66 64</span>
             </div>
         </div>
         
         <div class="top-categories">
-            <a href="#">UCUZ FİYATLAR</a>
-            <a href="#">GENÇ MODELLER</a>
-            <a href="#">OLGUN BAYANLAR</a>
-            <a href="#">KÜÇÜK MEMELİ</a>
-            <a href="#">BÜYÜK MEMELİ</a>
-            <a href="#">ÜST MODELLER</a>
+            <a href="#" class="lang-cheap">UCUZ FİYATLAR</a>
+            <a href="#" class="lang-young">GENÇ MODELLER</a>
+            <a href="#" class="lang-mature">OLGUN BAYANLAR</a>
+            <a href="#" class="lang-small">KÜÇÜK MEMELİ</a>
+            <a href="#" class="lang-big">BÜYÜK MEMELİ</a>
+            <a href="#" class="lang-top">EN İYİLER</a>
         </div>
     </div>
 
     <!-- Header -->
-    <header id="header">
+    <header>
         <div class="header-container">
-            <a href="#" class="logo">
+            <div class="logo">
                 <i class="fas fa-crown"></i>
-                Elite<span>Escort</span>
-            </a>
+                Escort <span>GO</span>
+            </div>
             
             <nav class="desktop-nav">
                 <ul>
-                    <li><a href="#" class="nav-link" data-page="home">ANA SAYFA</a></li>
-                    <li><a href="#" class="nav-link" data-page="escorts">ESCORTLAR</a></li>
-                    <li><a href="#">HİZMETLER</a></li>
-                    <li><a href="#">GALERİ</a></li>
-                    <li><a href="#">İLETİŞİM</a></li>
+                    <li><a href="#" class="lang-home">Ana Sayfa</a></li>
+                    <li><a href="#" class="lang-models">Modeller</a></li>
+                    <li><a href="#" class="lang-services">Hizmetler</a></li>
+                    <li><a href="#" class="lang-prices">Fiyatlar</a></li>
+                    <li><a href="#" class="lang-contact">İletişim</a></li>
                 </ul>
             </nav>
             
-            <a href="#" class="cta-button">REZERVASYON</a>
+            <a href="#" class="cta-button lang-booking">Rezervasyon</a>
             
-            <div class="menu-toggle" id="menuToggle">
+            <div class="menu-toggle" id="menu-toggle">
                 <i class="fas fa-bars"></i>
             </div>
         </div>
     </header>
 
     <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <div class="close-menu" id="closeMenu">
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="close-menu" id="close-menu">
             <i class="fas fa-times"></i>
         </div>
-        
         <ul>
-            <li><a href="#" class="nav-link" data-page="home">ANA SAYFA</a></li>
-            <li><a href="#" class="nav-link" data-page="escorts">ESCORTLAR</a></li>
-            <li><a href="#">HİZMETLER</a></li>
-            <li><a href="#">GALERİ</a></li>
-            <li><a href="#">İLETİŞİM</a></li>
+            <li><a href="#" class="lang-home">Ana Sayfa</a></li>
+            <li><a href="#" class="lang-models">Modeller</a></li>
+            <li><a href="#" class="lang-services">Hizmetler</a></li>
+            <li><a href="#" class="lang-prices">Fiyatlar</a></li>
+            <li><a href="#" class="lang-contact">İletişim</a></li>
         </ul>
     </div>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
+    <section class="hero">
         <div class="hero-content">
-            <h1>Berlin'in En Seçkin Escort Deneyimi</h1>
-            <p>Premium hizmet anlayışımız ve elit escort kadromuzla unutulmaz bir deneyim için buradayız. Lüks, gizlilik ve memnuniyet garantisi.</p>
+            <h1 class="lang-hero-title">Berlin'in En Seçkin Escortları</h1>
+            <p class="lang-hero-subtitle">Lüks ve gizlilik odaklı premium escort hizmeti. Özel ve seçkin modellerimizle unutulmaz bir deneyim yaşayın.</p>
             <div class="hero-cta">
-                <a href="#" class="cta-button">Hemen Keşfet</a>
-                <a href="#" class="secondary-button">Daha Fazla Bilgi</a>
+                <a href="#" class="cta-button lang-booking">Hemen Rezervasyon Yap</a>
+                <a href="#" class="secondary-button lang-models">Modelleri Görüntüle</a>
             </div>
         </div>
         
@@ -1309,234 +1302,221 @@
     <section class="premium-services">
         <div class="services-container">
             <div class="services-header">
-                <h2 class="section-title">Premium Hizmetlerimiz</h2>
+                <h2 class="section-title lang-services">Premium Hizmetler</h2>
             </div>
             
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="lang-service-1">Özel Partner</h3>
+                    <p class="lang-service-desc-1">Özel etkinlikleriniz için zarif ve profesyonel escort partner hizmeti.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
                         <i class="fas fa-glass-cheers"></i>
                     </div>
-                    <h3>Özel Yemek Eşliği</h3>
-                    <p>Şehrin en lüks restoranlarında, sosyal etkinliklerde veya iş yemeklerinizde size eşlik edecek zarif ve kültürlü escortlar.</p>
+                    <h3 class="lang-service-2">VIP Gece Hayatı</h3>
+                    <p class="lang-service-desc-2">Berlin'in en seçkin mekanlarında size eşlik edecek VIP escort hizmeti.</p>
                 </div>
                 
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-hotel"></i>
                     </div>
-                    <h3>Otel Ziyaretleri</h3>
-                    <p>Berlin'in 5 yıldızlı otellerinde unutulmaz bir deneyim için özel olarak seçilmiş escort partnerlerimizle lüks bir buluşma.</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-plane"></i>
-                    </div>
-                    <h3>Seyahatte Eşlik</h3>
-                    <p>İş veya tatil seyahatlerinizde size eşlik edecek, diller bilen ve görgü kurallarına hakim elit escort partnerler.</p>
+                    <h3 class="lang-service-3">Otel Ziyareti</h3>
+                    <p class="lang-service-desc-3">Otelinizde özel ve gizli bir randevu için lüks escort hizmeti.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Filter Section -->
+    <!-- Filters Section -->
     <section class="filters-section">
         <div class="filters-container">
-            <div class="filter-toggle" id="filterToggle">
-                <span>Filtreleme Seçeneklerini Göster/Gizle</span>
+            <div class="filter-toggle" id="filter-toggle">
+                <span class="lang-filter-toggle">Filtreleri Göster</span>
             </div>
             
-            <div class="filter-controls" id="filterControls">
+            <div class="filter-controls" id="filter-controls">
                 <div class="search-box">
-                    <input type="text" placeholder="Escort ismi veya özellik ara...">
+                    <input type="text" placeholder="İsim veya anahtar kelime ara..." class="lang-search-placeholder">
                     <button><i class="fas fa-search"></i></button>
                 </div>
                 
                 <div class="filter-group">
-                    <label for="age">Yaş Aralığı</label>
-                    <select id="age">
-                        <option value="">Tümü</option>
-                        <option value="18-25">18-25</option>
-                        <option value="26-35">26-35</option>
-                        <option value="36-45">36-45</option>
-                        <option value="46+">46+</option>
+                    <label class="lang-filter-age">Yaş</label>
+                    <select>
+                        <option class="lang-filter-all">Tümü</option>
+                        <option>18-25</option>
+                        <option>26-30</option>
+                        <option>31-35</option>
+                        <option>36+</option>
                     </select>
                 </div>
                 
                 <div class="filter-group">
-                    <label for="height">Boy</label>
-                    <select id="height">
-                        <option value="">Tümü</option>
-                        <option value="150-160">150-160 cm</option>
-                        <option value="161-170">161-170 cm</option>
-                        <option value="171-180">171-180 cm</option>
-                        <option value="181+">181+ cm</option>
+                    <label class="lang-filter-height">Boy</label>
+                    <select>
+                        <option class="lang-filter-all">Tümü</option>
+                        <option>160cm ve altı</option>
+                        <option>161-170cm</option>
+                        <option>171-180cm</option>
+                        <option>181cm ve üstü</option>
                     </select>
                 </div>
                 
                 <div class="filter-group">
-                    <label for="weight">Kilo</label>
-                    <select id="weight">
-                        <option value="">Tümü</option>
-                        <option value="40-50">40-50 kg</option>
-                        <option value="51-60">51-60 kg</option>
-                        <option value="61-70">61-70 kg</option>
-                        <option value="71+">71+ kg</option>
+                    <label class="lang-filter-services">Hizmetler</label>
+                    <select>
+                        <option class="lang-filter-all">Tümü</option>
+                        <option class="lang-filter-option-1">Otel Ziyareti</option>
+                        <option class="lang-filter-option-2">Gece Eşliği</option>
+                        <option class="lang-filter-option-3">Özel Partner</option>
                     </select>
                 </div>
                 
                 <div class="filter-buttons">
-                    <button class="filter-btn apply-filters">Filtrele</button>
-                    <button class="filter-btn reset-filters">Sıfırla</button>
+                    <button class="filter-btn apply-filters lang-apply-filters">Uygula</button>
+                    <button class="filter-btn reset-filters lang-reset-filters">Sıfırla</button>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Escort Grid -->
-    <section class="escort-grid" id="escorts">
+    <section class="escort-grid">
         <div class="grid-header">
-            <h2 class="section-title">Elit Escort Modeller</h2>
-            <div class="results-count">Toplam 24 escort bulundu</div>
+            <h2 class="section-title lang-models">Premium Modeller</h2>
+            <div class="results-count">12 <span class="lang-results">sonuç</span></div>
         </div>
         
         <div class="grid">
-            <!-- Escort Card 1 -->
+            <!-- Profile 1 -->
             <div class="escort-card">
                 <div class="escort-image">
-                    <img src="https://images.unsplash.com/photo-1596215143922-eedeaba0d91c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Escort Model">
-                    <div class="online-status">ONLINE</div>
+                    <img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sofia">
+                    <div class="online-status">Çevrimiçi</div>
                 </div>
                 <div class="escort-info">
-                    <h3>Elena</h3>
+                    <h3>Sofia</h3>
                     <div class="escort-meta">
-                        <span>25 yaş</span>
-                        <span>172 cm</span>
-                        <span>58 kg</span>
+                        <span>25 Yaş</span>
+                        <span>172cm</span>
                     </div>
-                    <p class="escort-description">Rus asıllı, üniversite mezunu, zarif ve kültürlü. İngilizce ve Almanca biliyor.</p>
+                    <p class="escort-description">Brezilyalı güzellik, sıcak ve enerjik kişiliğiyle unutulmaz bir deneyim vaat ediyor.</p>
                     <div class="escort-features">
-                        <span class="feature-tag">Üniversiteli</span>
-                        <span class="feature-tag">Rus</span>
-                        <span class="feature-tag">Çok Dilli</span>
+                        <span class="feature-tag">Otel Ziyareti</span>
+                        <span class="feature-tag">Gece Eşliği</span>
                     </div>
-                    <button class="detail-button">Detaylı Profil</button>
+                    <button class="detail-button lang-view-profile">Profili Görüntüle</button>
                 </div>
             </div>
             
-            <!-- Escort Card 2 -->
+            <!-- Profile 2 -->
             <div class="escort-card">
                 <div class="escort-image">
-                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Escort Model">
-                    <div class="online-status">ONLINE</div>
-                </div>
-                <div class="escort-info">
-                    <h3>Sophia</h3>
-                    <div class="escort-meta">
-                        <span>28 yaş</span>
-                        <span>168 cm</span>
-                        <span>55 kg</span>
-                    </div>
-                    <p class="escort-description">Alman asıllı, profesyonel dansçı, enerjik ve eğlenceli. Özel şov yapabilir.</p>
-                    <div class="escort-features">
-                        <span class="feature-tag">Dansçı</span>
-                        <span class="feature-tag">Alman</span>
-                        <span class="feature-tag">Eğlenceli</span>
-                    </div>
-                    <button class="detail-button">Detaylı Profil</button>
-                </div>
-            </div>
-            
-            <!-- Escort Card 3 -->
-            <div class="escort-card">
-                <div class="escort-image">
-                    <img src="https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Escort Model">
-                    <div class="online-status">ÇEVRİMİÇİ</div>
-                </div>
-                <div class="escort-info">
-                    <h3>Mia</h3>
-                    <div class="escort-meta">
-                        <span>22 yaş</span>
-                        <span>175 cm</span>
-                        <span>60 kg</span>
-                    </div>
-                    <p class="escort-description">Çek model, uzun bacaklar, fotoğrafçılık öğrencisi. Doğal ve samimi.</p>
-                    <div class="escort-features">
-                        <span class="feature-tag">Model</span>
-                        <span class="feature-tag">Çek</span>
-                        <span class="feature-tag">Uzun Boylu</span>
-                    </div>
-                    <button class="detail-button">Detaylı Profil</button>
-                </div>
-            </div>
-            
-            <!-- Escort Card 4 -->
-            <div class="escort-card">
-                <div class="escort-image">
-                    <img src="https://images.unsplash.com/photo-1516726817505-f5ed825624d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Escort Model">
-                    <div class="online-status">ÇEVRİMİÇİ</div>
-                </div>
-                <div class="escort-info">
-                    <h3>Isabella</h3>
-                    <div class="escort-meta">
-                        <span>30 yaş</span>
-                        <span>165 cm</span>
-                        <span>57 kg</span>
-                    </div>
-                    <p class="escort-description">İtalyan güzeli, olgun ve deneyimli, iş kadını. Lüks yaşam tarzına hakim.</p>
-                    <div class="escort-features">
-                        <span class="feature-tag">Olgun</span>
-                        <span class="feature-tag">İtalyan</span>
-                        <span class="feature-tag">Lüks</span>
-                    </div>
-                    <button class="detail-button">Detaylı Profil</button>
-                </div>
-            </div>
-            
-            <!-- Escort Card 5 -->
-            <div class="escort-card">
-                <div class="escort-image">
-                    <img src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Escort Model">
-                    <div class="online-status">ÇEVRİMDIŞI</div>
-                </div>
-                <div class="escort-info">
-                    <h3>Zoe</h3>
-                    <div class="escort-meta">
-                        <span>24 yaş</span>
-                        <span>170 cm</span>
-                        <span>59 kg</span>
-                    </div>
-                    <p class="escort-description">Fransız ve Cezayir kökenli, iki dilli, sanatsever. Romantik buluşmalar için ideal.</p>
-                    <div class="escort-features">
-                        <span class="feature-tag">Fransız</span>
-                        <span class="feature-tag">Sanatsever</span>
-                        <span class="feature-tag">Romantik</span>
-                    </div>
-                    <button class="detail-button">Detaylı Profil</button>
-                </div>
-            </div>
-            
-            <!-- Escort Card 6 -->
-            <div class="escort-card">
-                <div class="escort-image">
-                    <img src="https://images.unsplash.com/photo-1573140247632-f8fd74997d5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Escort Model">
-                    <div class="online-status">ÇEVRİMİÇİ</div>
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Lena">
+                    <div class="online-status">Çevrimiçi</div>
                 </div>
                 <div class="escort-info">
                     <h3>Lena</h3>
                     <div class="escort-meta">
-                        <span>27 yaş</span>
-                        <span>169 cm</span>
-                        <span>56 kg</span>
+                        <span>28 Yaş</span>
+                        <span>168cm</span>
                     </div>
-                    <p class="escort-description">Alman ve Türk kökenli, hemşire, şefkatli ve anlayışlı. Masaj konusunda uzman.</p>
+                    <p class="escort-description">Alman asıllı, kültürlü ve sofistike, uzun sohbetler ve özel anlar için ideal partner.</p>
                     <div class="escort-features">
-                        <span class="feature-tag">Hemşire</span>
-                        <span class="feature-tag">Türk</span>
-                        <span class="feature-tag">Masaj Uzmanı</span>
+                        <span class="feature-tag">Özel Partner</span>
+                        <span class="feature-tag">Restoran</span>
                     </div>
-                    <button class="detail-button">Detaylı Profil</button>
+                    <button class="detail-button lang-view-profile">Profili Görüntüle</button>
+                </div>
+            </div>
+            
+            <!-- Profile 3 -->
+            <div class="escort-card">
+                <div class="escort-image">
+                    <img src="https://images.unsplash.com/photo-1488161628813-04466f872be2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Mia">
+                    <div class="online-status">Çevrimiçi</div>
+                </div>
+                <div class="escort-info">
+                    <h3>Mia</h3>
+                    <div class="escort-meta">
+                        <span>22 Yaş</span>
+                        <span>175cm</span>
+                    </div>
+                    <p class="escort-description">Çek model, uzun bacakları ve çarpıcı güzelliğiyle dikkat çekiyor. Enerjik ve eğlenceli.</p>
+                    <div class="escort-features">
+                        <span class="feature-tag">Otel Ziyareti</span>
+                        <span class="feature-tag">Seyahat</span>
+                    </div>
+                    <button class="detail-button lang-view-profile">Profili Görüntüle</button>
+                </div>
+            </div>
+            
+            <!-- Profile 4 -->
+            <div class="escort-card">
+                <div class="escort-image">
+                    <img src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Amelie">
+                    <div class="online-status">Çevrimiçi</div>
+                </div>
+                <div class="escort-info">
+                    <h3>Amelie</h3>
+                    <div class="escort-meta">
+                        <span>27 Yaş</span>
+                        <span>170cm</span>
+                    </div>
+                    <p class="escort-description">Fransız zarafeti ve şıklığı, romantik buluşmalar için mükemmel bir seçim.</p>
+                    <div class="escort-features">
+                        <span class="feature-tag">Özel Partner</span>
+                        <span class="feature-tag">Restoran</span>
+                    </div>
+                    <button class="detail-button lang-view-profile">Profili Görüntüle</button>
+                </div>
+            </div>
+            
+            <!-- Profile 5 -->
+            <div class="escort-card">
+                <div class="escort-image">
+                    <img src="https://images.unsplash.com/photo-1516726817505-f5ed825624d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Natalia">
+                    <div class="online-status">Çevrimiçi</div>
+                </div>
+                <div class="escort-info">
+                    <h3>Natalia</h3>
+                    <div class="escort-meta">
+                        <span>24 Yaş</span>
+                        <span>178cm</span>
+                    </div>
+                    <p class="escort-description">Rus güzeli, gizemli ve çekici kişiliğiyle lüks ve özel bir deneyim sunuyor.</p>
+                    <div class="escort-features">
+                        <span class="feature-tag">Otel Ziyareti</span>
+                        <span class="feature-tag">Gece Eşliği</span>
+                    </div>
+                    <button class="detail-button lang-view-profile">Profili Görüntüle</button>
+                </div>
+            </div>
+            
+            <!-- Profile 6 -->
+            <div class="escort-card">
+                <div class="escort-image">
+                    <img src="https://images.unsplash.com/photo-1545912452-8aea7e25a3d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Chiara">
+                    <div class="online-status">Çevrimiçi</div>
+                </div>
+                <div class="escort-info">
+                    <h3>Chiara</h3>
+                    <div class="escort-meta">
+                        <span>26 Yaş</span>
+                        <span>166cm</span>
+                    </div>
+                    <p class="escort-description">İtalyan ateşi, tutkulu ve canlı kişiliğiyle sıradışı bir akşam vaat ediyor.</p>
+                    <div class="escort-features">
+                        <span class="feature-tag">Özel Partner</span>
+                        <span class="feature-tag">Seyahat</span>
+                    </div>
+                    <button class="detail-button lang-view-profile">Profili Görüntüle</button>
                 </div>
             </div>
         </div>
@@ -1545,7 +1525,6 @@
             <div class="page-btn active">1</div>
             <div class="page-btn">2</div>
             <div class="page-btn">3</div>
-            <div class="page-btn">4</div>
             <div class="page-btn"><i class="fas fa-chevron-right"></i></div>
         </div>
     </section>
@@ -1554,133 +1533,278 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h3>Elite Escort Berlin</h3>
-                <p>Berlin'in en seçkin escort ajansı olarak, müşterilerimize premium hizmet ve unutulmaz deneyimler sunmaktan gurur duyuyoruz.</p>
+                <h3 class="lang-about">Hakkımızda</h3>
+                <p class="lang-about-text">Escort GO Berlin, lüks ve gizlilik odaklı premium escort hizmeti sunmaktadır. Seçkin müşterilerimize özel, unutulmaz deneyimler yaşatmak için buradayız.</p>
                 <div class="social-icons">
                     <a href="#"><i class="fab fa-instagram"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
                     <a href="#"><i class="fab fa-telegram"></i></a>
-                    <a href="#"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
             
             <div class="footer-section">
-                <h3>Hızlı Erişim</h3>
+                <h3 class="lang-links">Hızlı Bağlantılar</h3>
                 <ul class="footer-links">
-                    <li><a href="#"><i class="fas fa-angle-right"></i> Ana Sayfa</a></li>
-                    <li><a href="#"><i class="fas fa-angle-right"></i> Escortlar</a></li>
-                    <li><a href="#"><i class="fas fa-angle-right"></i> Hizmetler</a></li>
-                    <li><a href="#"><i class="fas fa-angle-right"></i> Galeri</a></li>
-                    <li><a href="#"><i class="fas fa-angle-right"></i> İletişim</a></li>
+                    <li><a href="#"><i class="fas fa-angle-right"></i> <span class="lang-home">Ana Sayfa</span></a></li>
+                    <li><a href="#"><i class="fas fa-angle-right"></i> <span class="lang-models">Modeller</span></a></li>
+                    <li><a href="#"><i class="fas fa-angle-right"></i> <span class="lang-services">Hizmetler</span></a></li>
+                    <li><a href="#"><i class="fas fa-angle-right"></i> <span class="lang-prices">Fiyatlar</span></a></li>
+                    <li><a href="#"><i class="fas fa-angle-right"></i> <span class="lang-contact">İletişim</span></a></li>
                 </ul>
             </div>
             
             <div class="footer-section">
-                <h3>İletişim Bilgileri</h3>
+                <h3 class="lang-contact">İletişim</h3>
                 <ul class="footer-links">
-                    <li><a href="#"><i class="fas fa-phone"></i> 0152 22 03 66 64</a></li>
-                    <li><a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
-                    <li><a href="#"><i class="fab fa-telegram"></i> Telegram</a></li>
-                    <li><a href="#"><i class="fas fa-envelope"></i> info@eliteescortberlin.com</a></li>
-                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> Berlin, Germany</a></li>
+                    <li><a href="#"><i class="fas fa-phone"></i> <span class="lang-phone">0152 22 03 66 64</span></a></li>
+                    <li><a href="#"><i class="fab fa-whatsapp"></i> <span class="lang-whatsapp">WhatsApp</span></a></li>
+                    <li><a href="#"><i class="fab fa-telegram"></i> <span class="lang-telegram">Telegram</span></a></li>
+                    <li><a href="#"><i class="fas fa-envelope"></i> <span class="lang-email">info@Escort GOberlin.com</span></a></li>
+                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> <span class="lang-address">Berlin, Almanya</span></a></li>
                 </ul>
             </div>
         </div>
         
         <div class="copyright">
-            <p>&copy; 2023 Elite Escort Berlin. Tüm hakları saklıdır. | Gizlilik Politikası | Kullanım Koşulları</p>
+            <p>&copy; 2023 Escort GO Berlin. <span class="lang-rights">Tüm hakları saklıdır.</span></p>
         </div>
     </footer>
 
     <script>
-        // Mobile Menu Toggle
-        document.getElementById('menuToggle').addEventListener('click', function() {
-            document.getElementById('mobileMenu').classList.add('active');
-        });
-        
-        document.getElementById('closeMenu').addEventListener('click', function() {
-            document.getElementById('mobileMenu').classList.remove('active');
-        });
-        
-        // Filter Toggle for Mobile
-        document.getElementById('filterToggle').addEventListener('click', function() {
-            document.getElementById('filterControls').classList.toggle('active');
-        });
-        
-        // Header Scroll Effect
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-        
-        // Card Animation on Scroll
+        // Dil değiştirme işlevselliği
         document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.escort-card');
-            
-            function checkIfInView() {
-                cards.forEach(card => {
-                    const cardTop = card.getBoundingClientRect().top;
-                    const windowHeight = window.innerHeight;
+            // Dil verileri
+            const translations = {
+                'tr': {
+                    'phone': 'Tel.: 0152 22 03 66 64',
+                    'whatsapp': 'WhatsApp: 0152 22 03 66 64',
+                    'telegram': 'Telegram: 0152 22 03 66 64',
+                    'cheap': 'UCUZ FİYATLAR',
+                    'young': 'GENÇ MODELLER',
+                    'mature': 'OLGUN BAYANLAR',
+                    'small': 'KÜÇÜK MEMELİ',
+                    'big': 'BÜYÜK MEMELİ',
+                    'top': 'EN İYİLER',
+                    'home': 'Ana Sayfa',
+                    'models': 'Modeller',
+                    'services': 'Hizmetler',
+                    'prices': 'Fiyatlar',
+                    'contact': 'İletişim',
+                    'booking': 'Rezervasyon',
+                    'hero-title': 'Berlin\'in En Seçkin Escortları',
+                    'hero-subtitle': 'Lüks ve gizlilik odaklı premium escort hizmeti. Özel ve seçkin modellerimizle unutulmaz bir deneyim yaşayın.',
+                    'service-1': 'Özel Partner',
+                    'service-desc-1': 'Özel etkinlikleriniz için zarif ve profesyonel escort partner hizmeti.',
+                    'service-2': 'VIP Gece Hayatı',
+                    'service-desc-2': 'Berlin\'in en seçkin mekanlarında size eşlik edecek VIP escort hizmeti.',
+                    'service-3': 'Otel Ziyareti',
+                    'service-desc-3': 'Otelinizde özel ve gizli bir randevu için lüks escort hizmeti.',
+                    'filter-toggle': 'Filtreleri Göster',
+                    'search-placeholder': 'İsim veya anahtar kelime ara...',
+                    'filter-age': 'Yaş',
+                    'filter-height': 'Boy',
+                    'filter-services': 'Hizmetler',
+                    'filter-all': 'Tümü',
+                    'filter-option-1': 'Otel Ziyareti',
+                    'filter-option-2': 'Gece Eşliği',
+                    'filter-option-3': 'Özel Partner',
+                    'apply-filters': 'Uygula',
+                    'reset-filters': 'Sıfırla',
+                    'results': 'sonuç',
+                    'view-profile': 'Profili Görüntüle',
+                    'about': 'Hakkımızda',
+                    'about-text': 'Escort GO Berlin, lüks ve gizlilik odaklı premium escort hizmeti sunmaktadır. Seçkin müşterilerimize özel, unutulmaz deneyimler yaşatmak için buradayız.',
+                    'links': 'Hızlı Bağlantılar',
+                    'email': 'info@Escort GOberlin.com',
+                    'address': 'Berlin, Almanya',
+                    'rights': 'Tüm hakları saklıdır.'
+                },
+                'de': {
+                    'phone': 'Tel.: 0152 22 03 66 64',
+                    'whatsapp': 'WhatsApp: 0152 22 03 66 64',
+                    'telegram': 'Telegram: 0152 22 03 66 64',
+                    'cheap': 'GÜNSTIGE PREISE',
+                    'young': 'JUNGE MODELLE',
+                    'mature': 'REIFE DAMEN',
+                    'small': 'KLEINE BRÜSTE',
+                    'big': 'GROSSE BRÜSTE',
+                    'top': 'DIE BESTEN',
+                    'home': 'Startseite',
+                    'models': 'Modelle',
+                    'services': 'Dienstleistungen',
+                    'prices': 'Preise',
+                    'contact': 'Kontakt',
+                    'booking': 'Buchung',
+                    'hero-title': 'Berlins Exklusivste Escorts',
+                    'hero-subtitle': 'Luxuriöser und diskreter Premium-Escort-Service. Erleben Sie unvergessliche Momente mit unseren exklusiven Modellen.',
+                    'service-1': 'Exklusivpartner',
+                    'service-desc-1': 'Elegante und professionelle Escort-Partner für Ihre exklusiven Veranstaltungen.',
+                    'service-2': 'VIP-Nachtleben',
+                    'service-desc-2': 'VIP-Escort-Service für Berlins exklusivste Locations.',
+                    'service-3': 'Hotelbesuch',
+                    'service-desc-3': 'Luxuriöser Escort-Service für ein diskretes Treffen in Ihrem Hotel.',
+                    'filter-toggle': 'Filter anzeigen',
+                    'search-placeholder': 'Nach Namen oder Stichwort suchen...',
+                    'filter-age': 'Alter',
+                    'filter-height': 'Größe',
+                    'filter-services': 'Dienstleistungen',
+                    'filter-all': 'Alle',
+                    'filter-option-1': 'Hotelbesuch',
+                    'filter-option-2': 'Nächtliche Begleitung',
+                    'filter-option-3': 'Exklusivpartner',
+                    'apply-filters': 'Anwenden',
+                    'reset-filters': 'Zurücksetzen',
+                    'results': 'Ergebnisse',
+                    'view-profile': 'Profil anzeigen',
+                    'about': 'Über uns',
+                    'about-text': 'Escort GO Berlin bietet luxuriösen und diskreten Premium-Escort-Service an. Wir sind hier, um exklusiven Kunden unvergessliche Erlebnisse zu bieten.',
+                    'links': 'Schnelllinks',
+                    'email': 'info@Escort GOberlin.com',
+                    'address': 'Berlin, Deutschland',
+                    'rights': 'Alle Rechte vorbehalten.'
+                },
+                'en': {
+                    'phone': 'Tel.: 0152 22 03 66 64',
+                    'whatsapp': 'WhatsApp: 0152 22 03 66 64',
+                    'telegram': 'Telegram: 0152 22 03 66 64',
+                    'cheap': 'CHEAP PRICES',
+                    'young': 'YOUNG MODELS',
+                    'mature': 'MATURE LADIES',
+                    'small': 'SMALL BREASTS',
+                    'big': 'BIG BREASTS',
+                    'top': 'TOP RATED',
+                    'home': 'Home',
+                    'models': 'Models',
+                    'services': 'Services',
+                    'prices': 'Prices',
+                    'contact': 'Contact',
+                    'booking': 'Booking',
+                    'hero-title': 'Berlin\'s Most Exclusive Escorts',
+                    'hero-subtitle': 'Luxury and privacy-focused premium escort service. Experience unforgettable moments with our exclusive models.',
+                    'service-1': 'Exclusive Partner',
+                    'service-desc-1': 'Elegant and professional escort partner service for your exclusive events.',
+                    'service-2': 'VIP Nightlife',
+                    'service-desc-2': 'VIP escort service for Berlin\'s most exclusive venues.',
+                    'service-3': 'Hotel Visit',
+                    'service-desc-3': 'Luxury escort service for a private and discreet meeting at your hotel.',
+                    'filter-toggle': 'Show Filters',
+                    'search-placeholder': 'Search by name or keyword...',
+                    'filter-age': 'Age',
+                    'filter-height': 'Height',
+                    'filter-services': 'Services',
+                    'filter-all': 'All',
+                    'filter-option-1': 'Hotel Visit',
+                    'filter-option-2': 'Nightly Companion',
+                    'filter-option-3': 'Exclusive Partner',
+                    'apply-filters': 'Apply',
+                    'reset-filters': 'Reset',
+                    'results': 'results',
+                    'view-profile': 'View Profile',
+                    'about': 'About Us',
+                    'about-text': 'Escort GO Berlin offers luxury and privacy-focused premium escort service. We are here to provide exclusive clients with unforgettable experiences.',
+                    'links': 'Quick Links',
+                    'email': 'info@Escort GOberlin.com',
+                    'address': 'Berlin, Germany',
+                    'rights': 'All rights reserved.'
+                }
+            };
+
+            // Dil değiştirme işlevi
+            function changeLanguage(lang) {
+                // Tüm dil öğelerini güncelle
+                document.querySelectorAll('[class^="lang-"]').forEach(element => {
+                    const className = Array.from(element.classList).find(c => c.startsWith('lang-'));
+                    if (className) {
+                        const key = className.replace('lang-', '');
+                        if (translations[lang] && translations[lang][key]) {
+                            element.textContent = translations[lang][key];
+                        }
+                    }
+                });
+
+                // Aktif dili güncelle
+                document.querySelectorAll('.language-option').forEach(option => {
+                    option.classList.remove('active');
+                });
+                document.querySelector(`.language-option[data-lang="${lang}"]`).classList.add('active');
+                
+                // Yeni dili localStorage'a kaydet
+                localStorage.setItem('selectedLanguage', lang);
+            }
+
+            // Dil seçeneklerine tıklama olayı ekle
+            document.querySelectorAll('.language-option').forEach(option => {
+                option.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const lang = this.getAttribute('data-lang');
+                    changeLanguage(lang);
+                });
+            });
+
+            // Sayfa yüklendiğinde kayıtlı dili kontrol et
+            const savedLanguage = localStorage.getItem('selectedLanguage') || 'tr';
+            changeLanguage(savedLanguage);
+
+            // Mobile menu toggle
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const closeMenu = document.getElementById('close-menu');
+
+            menuToggle.addEventListener('click', function() {
+                mobileMenu.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+
+            closeMenu.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+
+            // Filter toggle
+            const filterToggle = document.getElementById('filter-toggle');
+            const filterControls = document.getElementById('filter-controls');
+
+            if (filterToggle && filterControls) {
+                filterToggle.addEventListener('click', function() {
+                    filterControls.classList.toggle('active');
                     
-                    if (cardTop < windowHeight * 0.9) {
-                        card.classList.add('in-view');
+                    if (filterControls.classList.contains('active')) {
+                        filterToggle.querySelector('span').textContent = 'Filtreleri Gizle';
+                    } else {
+                        filterToggle.querySelector('span').textContent = 'Filtreleri Göster';
                     }
                 });
             }
-            
-            // Initial check
-            checkIfInView();
-            
-            // Check on scroll
-            window.addEventListener('scroll', checkIfInView);
-        });
-        
-        // Page Navigation
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const page = this.getAttribute('data-page');
-                
-                if (page === 'home') {
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth'
-                    });
-                } else if (page === 'escorts') {
-                    document.getElementById('escorts').scrollIntoView({
-                        behavior: 'smooth'
-                    });
+
+            // Header scroll effect
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
                 }
-                
-                // Close mobile menu if open
-                document.getElementById('mobileMenu').classList.remove('active');
+            });
+
+            // Scroll animation for escort cards
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.escort-card').forEach(card => {
+                observer.observe(card);
             });
         });
-        
-        // Scroll Down Button
-        document.querySelector('.scroll-down').addEventListener('click', function() {
-            document.getElementById('escorts').scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-        
-        // Responsive filter fix - ensure filters are visible on desktop
-        function handleResponsiveFilters() {
-            const filterControls = document.getElementById('filterControls');
-            if (window.innerWidth > 992) {
-                filterControls.classList.add('active');
-            } else {
-                filterControls.classList.remove('active');
-            }
-        }
-        
-        // Run on load and resize
-        window.addEventListener('load', handleResponsiveFilters);
-        window.addEventListener('resize', handleResponsiveFilters);
     </script>
 </body>
 </html>
